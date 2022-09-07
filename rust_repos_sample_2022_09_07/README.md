@@ -1,6 +1,6 @@
 # README
 
-This README lists and details the files to be found in the release of the `rust_repos` dataset.
+This README lists and details the files to be found in the release of the `rust_repos_sample` dataset.
 They are organized into different categories:
  - the dataset itself
  - pre-processed CSV files ready for immediate researcher use and demonstration Jupyter notebooks
@@ -15,7 +15,7 @@ They are organized into different categories:
 ├── dumps
 │   ├── ERdiagram.png
 │   ├── sqlite
-│   │   └── rust_repos.db
+│   │   └── rust_repos_sample.db
 │   └── postgresql
 │       ├── script.sh
 │       ├── schema.sql
@@ -65,7 +65,7 @@ They are organized into different categories:
 ### Dataset dumps
 
 The dataset is released in two formats, in the folder `dumps`:
- - A ready-to-use SQLite file `sqlite/rust_repos.db`
+ - A ready-to-use SQLite file `sqlite/rust_repos_sample.db`
  - Files to reproduce the database in PostgreSQL:
   - `postgresql/script.sh` A wrapper bash script to call `schema.sql` and `import.sql` while asking for database credentials (consider using a `$HOME/.pgpass` file, see [the official documentation][1]) 
   - `postgresql/schema.sql` to create the structure in your empty database 
