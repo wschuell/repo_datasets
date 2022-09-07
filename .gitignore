@@ -1,0 +1,8 @@
+**/.ipynb_checkpoints
+**/dumps
+**/preprocessed
+**/*-Copy1.ipynb
+**/*-Copy*.ipynb
+**/datafolder
+*.swp
+**/set_parameters_*.py
