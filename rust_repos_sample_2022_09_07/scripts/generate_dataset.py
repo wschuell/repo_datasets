@@ -1,5 +1,5 @@
 
-import repo_tools as rp
+import repodepo as rd
 from repodepo.fillers import generic,github_rest,commit_info,crates,julia,github_gql,gitlab_gql,meta_fillers,deps_filters_fillers
 import os
 import psycopg2
@@ -70,7 +70,7 @@ print('Make sure you have a gitlab API key in $HOME/.repo_tools/gitlab_api_keys.
 time.sleep(3)
 
 
-db = rp.repo_database.Database(**db_conninfo)
+db = rd.repo_database.Database(**db_conninfo)
 
 db.init_db()
 db.add_filler(generic.SourcesFiller(source=['GitHub','Gitlab'],source_urlroot=['github.com','gitlab.com']))
