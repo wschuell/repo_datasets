@@ -1,0 +1,211 @@
+# _dbinfo:
+# - info_type
+# - info_content
+# _error_logs:
+# - id
+# - error
+# - created_at
+commit_parents:
+- child_id
+- parent_id
+- rank
+commit_repos:
+- commit_id
+- repo_id
+- is_orig_repo
+commits:
+- id
+- sha
+- author_id
+- repo_id
+- created_at
+- insertions
+- deletions
+- original_created_at
+filtered_deps_package:
+- package_id
+- reason
+#- created_at
+filtered_deps_packageedges:
+- package_source_id
+- package_dest_id
+- reason
+#- created_at
+filtered_deps_repo:
+- repo_id
+- reason
+#- created_at
+filtered_deps_repoedges:
+- repo_source_id
+- repo_dest_id
+- reason
+#- created_at
+followers:
+- follower_identity_type_id
+- follower_login
+- follower_id
+- followee_id
+- created_at
+# - inserted_at
+forks:
+- forking_repo_id
+- forking_repo_url
+- forked_repo_id
+- forked_at
+- fork_rank
+# full_updates:
+# - update_type
+# - updated_at
+identities:
+- id
+- identity_type_id
+- user_id
+- identity
+- created_at
+# - inserted_at
+- attributes
+- is_bot
+identity_types:
+- id
+- name
+# issues:
+# - id
+# - repo_id
+# - issue_number
+# - issue_title
+# - created_at
+# - closed_at
+# - inserted_at
+merged_identities:
+- id
+- main_identity_id
+- secondary_identity_id
+- main_user_id
+- secondary_user_id
+- affected_identities
+- reason
+# - inserted_at
+merged_repositories:
+- id
+# - inserted_at
+# - merged_at
+- new_id
+- new_source
+- new_owner
+- new_name
+- obsolete_id
+- obsolete_source
+- obsolete_owner
+- obsolete_name
+- merging_reason_source
+package_dependencies:
+- depending_version
+- depending_on_package
+- semver_str
+package_version_downloads:
+- downloaded_at
+- downloads
+- package_version
+package_versions:
+- id
+- package_id
+- version_str
+- created_at
+packages:
+- id
+- source_id
+- insource_id
+- name
+- url_id
+- repo_id
+# - inserted_at
+- created_at
+# releases:
+# - id
+# - repo_id
+# - name
+# - tag_name
+# - created_at
+# - inserted_at
+repo_languages:
+- repo_id
+- language
+- size
+- share
+# - queried_at
+repositories:
+- id
+- source
+- owner
+- name
+- url_id
+- created_at
+# - updated_at
+- latest_commit_time
+- cloned
+sources:
+- id
+- name
+- url_root
+# sponsors_listings:
+# - id
+# - login
+# - identity_type_id
+# - created_at
+# - inserted_at
+# sponsors_repo:
+# - id
+# - repo_id
+# - sponsor_identity_type_id
+# - sponsor_login
+# - sponsor_id
+# - created_at
+# - inserted_at
+# - external_id
+# - tier
+sponsors_user:
+- id
+- sponsored_id
+- sponsor_identity_type_id
+- sponsor_id
+- sponsor_login
+- created_at
+# - inserted_at
+- external_id
+- tier
+- is_onetime_payment
+stars:
+- repo_id
+- identity_type_id
+- login
+- identity_id
+- starred_at
+# - created_at
+# table_updates:
+# - id
+# - repo_id
+# - identity_id
+# - table_name
+# - success
+# - updated_at
+# - latest_commit_time
+# - info
+urls:
+- id
+- source
+- source_root
+- url
+- cleaned_url
+# - inserted_at
+user_languages:
+- user_identity
+- language
+- size
+- share
+# - queried_at
+users:
+- id
+- creation_identity_type_id
+- creation_identity
+# - inserted_at
+- is_bot
