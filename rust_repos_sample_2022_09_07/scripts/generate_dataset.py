@@ -82,7 +82,7 @@ db.add_filler(crates.CratesFiller(package_limit=package_limit,**db_crates_connin
 db.add_filler(generic.DLSamplePackages(nb_packages=100)) # Trims the list of packages to the top most downloaded
 
 db.add_filler(generic.RepositoriesFiller()) # Parses the URLs of the packages to attribute them to the available sources (github.com and gitlab.com)
-db.add_filler(generic.SourcesAutofiller()) # Checks for unattributed sources in URL that are valid git platforms
+db.add_filler(generic.SourcesAutoFiller()) # Checks for unattributed sources in URL that are valid git platforms
 db.add_filler(generic.RepositoriesFiller()) # Completes the first call by integrating the new sources
 
 db.add_filler(github_gql.ForksGQLFiller(workers=workers))
@@ -98,9 +98,9 @@ db.add_filler(generic.SimilarIdentitiesMerger(identity_type1='github_login',iden
 db.add_filler(github_gql.StarsGQLFiller(workers=workers))
 db.add_filler(github_gql.FollowersGQLFiller(workers=workers))
 db.add_filler(github_gql.SponsorsUserFiller(workers=workers))
-db.add_filler(github_gql.CommitCommentsFiller(workers=workers)) # Integrates commit comments reactions
-db.add_filler(github_gql.CompleteIssuesFiller(workers=workers)) # Integrates reactions, comments, comment reactions and labels
-db.add_filler(github_gql.CompletePullRequestsFiller(workers=workers)) # Integrates reactions, comments, comment reactions and labels
+db.add_filler(github_gql.CommitCommentsGQLFiller(workers=workers)) # Integrates commit comments reactions
+db.add_filler(github_gql.CompleteIssuesGQLFiller(workers=workers)) # Integrates reactions, comments, comment reactions and labels
+db.add_filler(github_gql.CompletePullRequestsGQLFiller(workers=workers)) # Integrates reactions, comments, comment reactions and labels
 db.add_filler(generic.RepoCommitOwnershipFiller())
 db.add_filler(meta_fillers.MetaBotFiller()) # wrapping several techniques to flag bots and invalid identities
 db.add_filler(github_gql.RepoCreatedAtGQLFiller(workers=workers))
