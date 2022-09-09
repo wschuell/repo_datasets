@@ -57,12 +57,14 @@ db_crates_conninfo = dict( host = 'localhost',
 
 
 ######## PARAMETERS ########
+filepath = os.path.join(output_folder,'statistics','ghtorrent_comparison.yml')
 
-db = rd.repo_database.Database(**db_conninfo)
-ght_conn = psycopg2.connect(**db_ght_conninfo)
-ght_cur = ght_conn.cursor()
-
-gs = ghtorrent_stats.GHTorrentGlobalStats(db=db,ght_cur=ght_cur,ght_conn=ght_conn)
-gs.print_result()
-
-gs.save(filepath=os.path.join(output_folder,'statistics','ghtorrent_comparison.yml'))
+if not os.path.exists(filepath):
+	db = rd.repo_database.Database(**db_conninfo)
+	ght_conn = psycopg2.connect(**db_ght_conninfo)
+	ght_cur = ght_conn.cursor()
+	
+	gs = ghtorrent_stats.GHTorrentGlobalStats(db=db,ght_cur=ght_cur,ght_conn=ght_conn)
+	gs.print_result()
+	
+	gs.save(filepath=filepath)

@@ -101,6 +101,8 @@ db.add_filler(github_gql.SponsorsUserFiller(workers=workers))
 db.add_filler(github_gql.CommitCommentsGQLFiller(workers=workers)) # Integrates commit comments reactions
 db.add_filler(github_gql.CompleteIssuesGQLFiller(workers=workers)) # Integrates reactions, comments, comment reactions and labels
 db.add_filler(github_gql.CompletePullRequestsGQLFiller(workers=workers)) # Integrates reactions, comments, comment reactions and labels
+db.add_filler(gitlab_gql.CompleteIssuesGQLFiller(workers=workers)) # Integrates reactions, comments, comment reactions and labels
+db.add_filler(gitlab_gql.CompletePullRequestsGQLFiller(workers=workers)) # Integrates reactions, comments, comment reactions and labels
 db.add_filler(generic.RepoCommitOwnershipFiller())
 db.add_filler(meta_fillers.MetaBotFiller()) # wrapping several techniques to flag bots and invalid identities
 db.add_filler(github_gql.RepoCreatedAtGQLFiller(workers=workers))

@@ -56,8 +56,9 @@ db_crates_conninfo = dict( host = 'localhost',
 
 
 ######## PARAMETERS ########
-
-db = rd.repo_database.Database(**db_conninfo)
-gs = repodepo.extras.GlobalStats(db=db)
-gs.print_result()
-gs.save(filepath=os.path.join(output_folder,'statistics','global_stats.yml'))
+filepath = os.path.join(output_folder,'statistics','global_stats.yml')
+if not os.path.exists(filepath):
+	db = rd.repo_database.Database(**db_conninfo)
+	gs = repodepo.extras.GlobalStats(db=db)
+	gs.print_result()
+	gs.save(filepath=filepath)
