@@ -31,6 +31,7 @@ db_conninfo = dict( host = 'localhost',
 					db_user = 'postgres',
 					db_type = 'postgres',
 					db_name = db_name,
+					clones_folder = clones_folder,
 					data_folder = data_folder)
 
 # PG destination DB connection info; where the data is exported before processing (anonymization + cleaning)
@@ -66,7 +67,7 @@ db_crates_conninfo = dict( host = 'localhost',
 package_limit = None # Set a package limit to build a sample dataset, from the N first packages by id. If set to None, no limit.
 
 
-workers = 6 # Number of parallel threads for querying the github APIs
+workers = 4 # Number of parallel threads for querying the github APIs
 
 print('Make sure you have a github API key (with permission read:user for GraphQL) in $HOME/.repo_tools/github_api_keys.txt. Continuing in 3s.')
 print('Make sure you have a gitlab API key in $HOME/.repo_tools/gitlab_api_keys.txt. Continuing in 3s.')
@@ -86,8 +87,8 @@ db.add_filler(generic.SourcesAutoFiller()) # Checks for unattributed sources in 
 db.add_filler(generic.RepositoriesFiller()) # Completes the first call by integrating the new sources
 
 db.add_filler(github_gql.ForksGQLFiller(workers=workers))
-db.add_filler(generic.ClonesFiller(data_folder=clones_folder)) # Clones after forks to have up-to-date repo URLS (detect redirects)
-db.add_filler(commit_info.CommitsFiller(data_folder=clones_folder)) # Commits after forks because fork info needed for repo commit ownership ran at the end.
+db.add_filler(generic.ClonesFiller()) # Clones after forks to have up-to-date repo URLS (detect redirects)
+db.add_filler(commit_info.CommitsFiller()) # Commits after forks because fork info needed for repo commit ownership ran at the end.
 db.add_filler(generic.RepoCommitOwnershipFiller()) # associating repositories as owners of commits (for those who could not be disambiguated using forks) based on creation date of associated package
 db.add_filler(generic.GithubNoreplyEmailMerger()) # Resolves commit authors with email @users.noreply.github.com
 db.add_filler(github_gql.LoginsGQLFiller(workers=workers)) # Disambiguating emails by associating them to their GH logins, using the most recent commit.

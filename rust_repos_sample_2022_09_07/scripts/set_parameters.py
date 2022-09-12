@@ -27,6 +27,7 @@ db_conninfo = dict( host = 'localhost',
 					db_user = 'postgres',
 					db_type = 'postgres',
 					db_name = db_name,
+					clone_folder = clones_folder,
 					data_folder = data_folder)
 
 # PG destination DB connection info; where the data is exported before processing (anonymization + cleaning)
