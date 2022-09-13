@@ -109,6 +109,7 @@ db.add_filler(meta_fillers.MetaBotFiller()) # wrapping several techniques to fla
 db.add_filler(github_gql.RepoCreatedAtGQLFiller(workers=workers))
 db.add_filler(gitlab_gql.RepoCreatedAtFiller(workers=workers))
 db.add_filler(github_gql.UserCreatedAtGQLFiller(workers=workers))
+db.add_filler(github_gql.UserOrgsGQLFiller(workers=workers))
 db.add_filler(github_gql.RepoLanguagesGQLFiller(workers=workers)) # Filling in repository language shares (approximation made directly by GitHub)
 db.add_filler(github_gql.UserLanguagesGQLFiller(workers=workers)) # Compiling an approximation of user contributions in each language over a time period (default one year up to query time)
 db.add_filler(deps_filters_fillers.AutoRepoEdges2Cycles())
