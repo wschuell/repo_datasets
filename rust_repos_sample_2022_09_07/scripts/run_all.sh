@@ -22,6 +22,7 @@ DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
 if [ -z $(ls ../dumps/sqlite/*.db) ]
 then
 	python3 generate_dataset.py;
+	python3 export_filters_bots.py;
 else
 	echo 'SQLite dump present, skipping generate_dataset'
 fi
