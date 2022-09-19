@@ -12,7 +12,7 @@ import datetime
 import os
 
 db_name = 'rust_repos_sample'
-port = 54320
+port = 5432
 
 # Where to output the files
 output_folder = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
