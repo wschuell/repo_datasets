@@ -64,9 +64,6 @@ db_crates_conninfo = dict( host = 'localhost',
 
 ######## PARAMETERS ########
 
-with open(tables_filter_file,'r') as f:
-    inclusion_list = yaml.safe_load(f.read())
-
 export_output_folder = os.path.join(output_folder,'dumps')
 
 if not os.path.exists(export_output_folder):
@@ -86,6 +83,9 @@ with open(tables_filter_file,'r') as f:
 
 if content_after != content_before:
 	input(f'''Generated updated tables file in {tables_filter_file}: Check manually before continuing (Enter to continue)''')
+
+with open(tables_filter_file,'r') as f:
+    inclusion_list = yaml.safe_load(f.read())
 
 # Export to a postgres DB, where it will be anonymized and cleaned
 repodepo.extras.exports.export(orig_db=db_orig,dest_db=db_dest_pg,ignore_error=True)
