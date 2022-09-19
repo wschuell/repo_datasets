@@ -1,6 +1,6 @@
 
 import repodepo as rd
-from repodepo.fillers import generic,github_rest,commit_info,crates,julia,github_gql,gitlab_gql,meta_fillers,deps_filters_fillers
+from repodepo.fillers import generic,github_rest,commit_info,crates,julia,github_gql,gitlab_gql,meta_fillers,deps_filters_fillers,bot_fillers
 import os
 import psycopg2
 import time
@@ -15,7 +15,7 @@ db_name = 'rust_repos_sample'
 port = 5432
 
 # Where to output the files
-output_folder = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+output_folder = os.path.dirname(os.path.dirname(__file__))
 
 # Where intermediary data is stored when recollecting data for rebuilding the database
 data_folder = output_folder+'_data_folder'
@@ -31,7 +31,7 @@ db_conninfo = dict( host = 'localhost',
 					db_user = 'postgres',
 					db_type = 'postgres',
 					db_name = db_name,
-					clone_folder = clones_folder,
+					clones_folder = clones_folder,
 					data_folder = data_folder)
 
 # PG destination DB connection info; where the data is exported before processing (anonymization + cleaning)
