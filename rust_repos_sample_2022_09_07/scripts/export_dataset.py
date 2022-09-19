@@ -77,7 +77,7 @@ db_dest_sqlite = rd.repo_database.Database(db_folder=os.path.join(export_output_
 tables_filter_file = os.path.join(os.path.dirname(__file__),'data','tables_filter.yml')
 with open(tables_filter_file,'r') as f:
 	content_before = f.read()
-repodepo.extras.exports.generate_tables_file(filepath=tables_filter_file,db=db)
+repodepo.extras.exports.generate_tables_file(filepath=tables_filter_file,db=db_orig)
 with open(tables_filter_file,'r') as f:
 	content_after = f.read()
 
