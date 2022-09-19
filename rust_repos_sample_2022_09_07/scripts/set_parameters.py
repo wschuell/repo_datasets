@@ -11,7 +11,7 @@ db_name = 'rust_repos_sample'
 port = 5432
 
 # Where to output the files
-output_folder = os.path.dirname(os.path.dirname(__file__))
+output_folder = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Where intermediary data is stored when recollecting data for rebuilding the database
 data_folder = output_folder+'_data_folder'

@@ -16,7 +16,7 @@ db_name = 'rust_repos_sample'
 port = 5432
 
 # Where to output the files
-output_folder = os.path.dirname(os.path.dirname(__file__))
+output_folder = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Where intermediary data is stored when recollecting data for rebuilding the database
 data_folder = output_folder+'_data_folder'
@@ -32,6 +32,7 @@ db_conninfo = dict( host = 'localhost',
 					db_user = 'postgres',
 					db_type = 'postgres',
 					db_name = db_name,
+					clone_folder = clones_folder,
 					data_folder = data_folder)
 
 # PG destination DB connection info; where the data is exported before processing (anonymization + cleaning)
@@ -65,6 +66,15 @@ db_crates_conninfo = dict( host = 'localhost',
 
 
 tables_filter_file = os.path.join(os.path.dirname(__file__),'data','tables_filter.yml')
+with open(tables_filter_file,'r') as f:
+	content_before = f.read()
+repodepo.extras.exports.generate_tables_file(filepath=tables_filter_file,db=db)
+with open(tables_filter_file,'r') as f:
+	content_after = f.read()
+
+if content_after != content_before:
+	input(f'''Generated updated tables file in {tables_filter_file}: Check manually before continuing (Enter to continue)''')
+
 with open(tables_filter_file,'r') as f:
     inclusion_list = yaml.safe_load(f.read())
 

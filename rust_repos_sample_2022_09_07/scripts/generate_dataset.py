@@ -15,7 +15,7 @@ db_name = 'rust_repos_sample'
 port = 5432
 
 # Where to output the files
-output_folder = os.path.dirname(os.path.dirname(__file__))
+output_folder = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Where intermediary data is stored when recollecting data for rebuilding the database
 data_folder = output_folder+'_data_folder'
@@ -31,7 +31,7 @@ db_conninfo = dict( host = 'localhost',
 					db_user = 'postgres',
 					db_type = 'postgres',
 					db_name = db_name,
-					clones_folder = clones_folder,
+					clone_folder = clones_folder,
 					data_folder = data_folder)
 
 # PG destination DB connection info; where the data is exported before processing (anonymization + cleaning)
@@ -105,15 +105,21 @@ db.add_filler(github_gql.CompletePullRequestsGQLFiller(workers=workers)) # Integ
 db.add_filler(gitlab_gql.CompleteIssuesGQLFiller(workers=workers)) # Integrates reactions, comments, comment reactions and labels
 db.add_filler(gitlab_gql.CompletePullRequestsGQLFiller(workers=workers)) # Integrates reactions, comments, comment reactions and labels
 db.add_filler(generic.RepoCommitOwnershipFiller())
-db.add_filler(meta_fillers.MetaBotFiller()) # wrapping several techniques to flag bots and invalid identities
 db.add_filler(github_gql.RepoCreatedAtGQLFiller(workers=workers))
 db.add_filler(gitlab_gql.RepoCreatedAtFiller(workers=workers))
 db.add_filler(github_gql.UserCreatedAtGQLFiller(workers=workers))
 db.add_filler(github_gql.UserOrgsGQLFiller(workers=1))
 db.add_filler(github_gql.RepoLanguagesGQLFiller(workers=workers)) # Filling in repository language shares (approximation made directly by GitHub)
 db.add_filler(github_gql.UserLanguagesGQLFiller(workers=workers)) # Compiling an approximation of user contributions in each language over a time period (default one year up to query time)
+db.add_filler(meta_fillers.MetaBotFiller()) # wrapping several techniques to flag bots and invalid identities
 db.add_filler(deps_filters_fillers.AutoRepoEdges2Cycles())
 db.add_filler(deps_filters_fillers.AutoPackageEdges2Cycles())
 db.add_filler(deps_filters_fillers.FiltersFolderFiller(input_folder=os.path.abspath(os.path.join(os.path.dirname(__file__),'data','filters')))) # Checking if some filters are declared in the same folder
 db.add_filler(deps_filters_fillers.FiltersFolderFiller()) # Adding filters from the updated list provided in repodepo itself
+
+# POTENTIALLY BLOCKING STEPS NEEDING MANUAL INPUT
+db.add_filler(bot_fillers.BotsManualChecksFiller()) # listing accounts to be checked manually for being bots/invalid
+db.add_filler(deps_filters_fillers.DepsManualChecksFiller()) # blocking if there are non-flagged cycles in the dependency network
+
+
 db.fill_db()
