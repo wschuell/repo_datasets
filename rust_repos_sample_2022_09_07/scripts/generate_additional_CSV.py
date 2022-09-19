@@ -74,8 +74,10 @@ with_usernames = False
 if not os.path.exists(csv_output_folder):
 	os.makedirs(csv_output_folder)
 
-db.cursor.execute('SELECT COALESCE(MAX(created_at),CURRENT_TIMESTAMP) FROM packages;')
-end_date = db.cursor.fetchone()[0].replace(tzinfo=None)
+#db.cursor.execute('SELECT COALESCE(MAX(created_at),CURRENT_TIMESTAMP) FROM packages;')
+#end_date = db.cursor.fetchone()[0].replace(tzinfo=None)
+
+end_date = datetime.datetime(2022,9,7)
 
 getter_params = dict(db=db,time_window=time_window,with_reponame=with_reponames,with_userlogin=with_usernames,end_date=end_date)
 
