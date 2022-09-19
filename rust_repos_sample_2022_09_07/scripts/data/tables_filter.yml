@@ -5,7 +5,6 @@
 # - identity_type
 # - identity_type_id
 # - is_bot
-# - is_invalid
 # - note
 # _dbinfo:
 # - info_content
