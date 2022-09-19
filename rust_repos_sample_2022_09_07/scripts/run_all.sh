@@ -42,7 +42,10 @@ export NB_NAME=$(echo "$NB_FILE" | rev | cut -f 2- -d '.' | rev)
 	fi
 done
 
-#python3 globalstats.py;
+python3 globalstats.py;
+
+##### Exporting the dataset
+python3 export_dataset.py;
 
 ########## Executing basic_plots notebook if necessary
 export NB_FOLDER='../statistics'
@@ -54,7 +57,6 @@ then
 fi
 
 
-#python3 comparison_ghtorrent.py;
-#python3 export_dataset.py;
+python3 comparison_ghtorrent.py;
 
 )
