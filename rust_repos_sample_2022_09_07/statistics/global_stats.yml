@@ -1,0 +1,277 @@
+packages:
+  nb_total: 100
+  nb_withurl:
+    total: 100
+    distinct: 82
+  nb_withrepo:
+    total:
+      _all: 100
+      GitHub: 100
+    distinct:
+      _all: 81
+      GitHub: 81
+  nb_withrepo_cloned:
+    total:
+      _all: 86
+      GitHub: 86
+    distinct:
+      _all: 81
+      GitHub: 71
+urls:
+  nb_total: 81
+  nb_withrepo:
+    total:
+      _all: 87
+      GitHub: 87
+    distinct:
+      _all: 81
+      GitHub: 81
+  nb_withrepo_cloned:
+    total:
+      _all: 76
+      GitHub: 76
+    distinct:
+      _all: 71
+      GitHub: 71
+repositories:
+  nb_total:
+    _all: 81
+    GitHub: 81
+  nb_cloned:
+    _all: 71
+    GitHub: 71
+  nb_1dev:
+    _all: 0
+  nb_100dev:
+    _all: 11
+    GitHub: 11
+  nb_1package:
+    _all: 71
+    GitHub: 71
+  nb_multipackages:
+    _all: 10
+    GitHub: 10
+  nb_maxpackages:
+    _all: 6
+    GitHub: 6
+  nb_avgpackages:
+    _all: 1.2345679012345678
+    GitHub: 1.2345679012345678
+  merged_repos:
+    _all: 4
+    GitHub: 4
+commits:
+  nb_total:
+    no_bots:
+      _all: 38668
+      GitHub: 38668
+    only_bots:
+      _all: 2079
+      GitHub: 2079
+  with_forks:
+    nb_total:
+      no_bots:
+        _all: 694
+        GitHub: 694
+      only_bots:
+        _all: 21
+        GitHub: 21
+    max:
+      no_bots:
+        _all: 2
+        GitHub: 2
+      only_bots:
+        _all: 2
+        GitHub: 2
+identities:
+  nb_total:
+    no_bots:
+      email: 2600
+      github_login: 2158
+    only_bots:
+      email: 15
+      github_login: 7
+users:
+  nb_total:
+    no_bots:
+      email: 2372
+      github_login: 2158
+    only_bots:
+      email: 12
+      github_login: 7
+    total:
+      total: 2443
+      no_identity: 59
+  github_gitlab:
+    common: 0
+    common_samelogin: 0
+    no_gh_no_gl: 219
+dependencies:
+  packagespace:
+    nb_links: 185
+    cycles:
+      cycle_detection_stopped: false
+      nb_cycles: 1
+      nb_2cycles: 0
+      maxlen_cycle: 7
+      total_elements_involved: 7
+      total_links_involved: 7
+      elements_involved:
+      - crates/parking_lot: 1
+      - crates/parking_lot_core: 1
+      - crates/rand: 1
+      - crates/log: 1
+      - crates/regex: 1
+      - crates/thread_local: 1
+      - crates/once_cell: 1
+      links_involved:
+      - ('crates/once_cell', 'crates/parking_lot'): 1
+      - ('crates/parking_lot', 'crates/parking_lot_core'): 1
+      - ('crates/parking_lot_core', 'crates/rand'): 1
+      - ('crates/rand', 'crates/log'): 1
+      - ('crates/log', 'crates/regex'): 1
+      - ('crates/regex', 'crates/thread_local'): 1
+      - ('crates/thread_local', 'crates/once_cell'): 1
+  packagespace_filtered:
+    nb_links: 184
+    nb_links_filtered: 1
+    cycles:
+      cycle_detection_stopped: false
+      nb_cycles: 1
+      nb_2cycles: 0
+      maxlen_cycle: 7
+      total_elements_involved: 7
+      total_links_involved: 7
+      elements_involved:
+      - crates/parking_lot: 1
+      - crates/parking_lot_core: 1
+      - crates/rand: 1
+      - crates/log: 1
+      - crates/regex: 1
+      - crates/thread_local: 1
+      - crates/once_cell: 1
+      links_involved:
+      - ('crates/once_cell', 'crates/parking_lot'): 1
+      - ('crates/parking_lot', 'crates/parking_lot_core'): 1
+      - ('crates/parking_lot_core', 'crates/rand'): 1
+      - ('crates/rand', 'crates/log'): 1
+      - ('crates/log', 'crates/regex'): 1
+      - ('crates/regex', 'crates/thread_local'): 1
+      - ('crates/thread_local', 'crates/once_cell'): 1
+  packagespace_timestamp:
+    nb_links: 91
+    cycles:
+      cycle_detection_stopped: false
+      nb_cycles: 0
+      nb_2cycles: 0
+      maxlen_cycle: 0
+      total_elements_involved: 0
+      total_links_involved: 0
+      elements_involved: []
+      links_involved: []
+  packagespace_timestamp_filtered:
+    nb_links: 90
+    nb_links_filtered: 1
+    cycles:
+      cycle_detection_stopped: false
+      nb_cycles: 0
+      nb_2cycles: 0
+      maxlen_cycle: 0
+      total_elements_involved: 0
+      total_links_involved: 0
+      elements_involved: []
+      links_involved: []
+  repospace:
+    nb_links: 140
+    cycles:
+      cycle_detection_stopped: false
+      nb_cycles: 1
+      nb_2cycles: 0
+      maxlen_cycle: 6
+      total_elements_involved: 6
+      total_links_involved: 6
+      elements_involved:
+      - GitHub/rust-lang/log: 1
+      - GitHub/rust-lang/regex: 1
+      - GitHub/Amanieu/thread_local-rs: 1
+      - GitHub/matklad/once_cell: 1
+      - GitHub/Amanieu/parking_lot: 1
+      - GitHub/rust-random/rand: 1
+      links_involved:
+      - ('GitHub/rust-random/rand', 'GitHub/rust-lang/log'): 1
+      - ('GitHub/rust-lang/log', 'GitHub/rust-lang/regex'): 1
+      - ('GitHub/rust-lang/regex', 'GitHub/Amanieu/thread_local-rs'): 1
+      - ('GitHub/Amanieu/thread_local-rs', 'GitHub/matklad/once_cell'): 1
+      - ('GitHub/matklad/once_cell', 'GitHub/Amanieu/parking_lot'): 1
+      - ('GitHub/Amanieu/parking_lot', 'GitHub/rust-random/rand'): 1
+      packagespace_links:
+        ('GitHub/rust-random/rand', 'GitHub/rust-lang/log'):
+        - ('crates/rand', 'crates/log')
+        ('GitHub/rust-lang/log', 'GitHub/rust-lang/regex'):
+        - ('crates/log', 'crates/regex')
+        ('GitHub/rust-lang/regex', 'GitHub/Amanieu/thread_local-rs'):
+        - ('crates/regex', 'crates/thread_local')
+        ('GitHub/Amanieu/thread_local-rs', 'GitHub/matklad/once_cell'):
+        - ('crates/thread_local', 'crates/once_cell')
+        ('GitHub/matklad/once_cell', 'GitHub/Amanieu/parking_lot'):
+        - ('crates/once_cell', 'crates/parking_lot')
+  repospace_filtered:
+    nb_links: 139
+    nb_links_filtered: 1
+    cycles:
+      cycle_detection_stopped: false
+      nb_cycles: 1
+      nb_2cycles: 0
+      maxlen_cycle: 6
+      total_elements_involved: 6
+      total_links_involved: 6
+      elements_involved:
+      - GitHub/rust-lang/log: 1
+      - GitHub/rust-lang/regex: 1
+      - GitHub/Amanieu/thread_local-rs: 1
+      - GitHub/matklad/once_cell: 1
+      - GitHub/Amanieu/parking_lot: 1
+      - GitHub/rust-random/rand: 1
+      links_involved:
+      - ('GitHub/rust-random/rand', 'GitHub/rust-lang/log'): 1
+      - ('GitHub/rust-lang/log', 'GitHub/rust-lang/regex'): 1
+      - ('GitHub/rust-lang/regex', 'GitHub/Amanieu/thread_local-rs'): 1
+      - ('GitHub/Amanieu/thread_local-rs', 'GitHub/matklad/once_cell'): 1
+      - ('GitHub/matklad/once_cell', 'GitHub/Amanieu/parking_lot'): 1
+      - ('GitHub/Amanieu/parking_lot', 'GitHub/rust-random/rand'): 1
+      packagespace_links:
+        ('GitHub/rust-random/rand', 'GitHub/rust-lang/log'):
+        - ('crates/rand', 'crates/log')
+        ('GitHub/rust-lang/log', 'GitHub/rust-lang/regex'):
+        - ('crates/log', 'crates/regex')
+        ('GitHub/rust-lang/regex', 'GitHub/Amanieu/thread_local-rs'):
+        - ('crates/regex', 'crates/thread_local')
+        ('GitHub/Amanieu/thread_local-rs', 'GitHub/matklad/once_cell'):
+        - ('crates/thread_local', 'crates/once_cell')
+        ('GitHub/matklad/once_cell', 'GitHub/Amanieu/parking_lot'):
+        - ('crates/once_cell', 'crates/parking_lot')
+  repospace_timestamp:
+    nb_links: 65
+    cycles:
+      cycle_detection_stopped: false
+      nb_cycles: 0
+      nb_2cycles: 0
+      maxlen_cycle: 0
+      total_elements_involved: 0
+      total_links_involved: 0
+      elements_involved: []
+      links_involved: []
+      packagespace_links: {}
+  repospace_timestamp_filtered:
+    nb_links: 64
+    nb_links_filtered: 1
+    cycles:
+      cycle_detection_stopped: false
+      nb_cycles: 0
+      nb_2cycles: 0
+      maxlen_cycle: 0
+      total_elements_involved: 0
+      total_links_involved: 0
+      elements_involved: []
+      links_involved: []
+      packagespace_links: {}
