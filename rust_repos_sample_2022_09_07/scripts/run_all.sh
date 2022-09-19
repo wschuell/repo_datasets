@@ -26,7 +26,8 @@ then
 else
 	echo 'SQLite dump present, skipping generate_dataset'
 fi
-#python3 generate_additional_CSV.py;
+
+python3 generate_additional_CSV.py;
 
 ########## Executing example notebooks if necessary
 export NB_FOLDER="../examples/notebooks";
