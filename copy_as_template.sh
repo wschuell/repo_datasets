@@ -30,7 +30,7 @@ if [[ ! -d $DEST_DATASET ]]
                  examples/notebooks/demo3_collaboration_network.ipynb \
                  scripts/comparison_ghtorrent.py \
                  scripts/export_dataset.py \
-                 scripts/export_filter_bots.py \
+                 scripts/export_filters_bots.py \
                  scripts/generate_additional_CSV.py \
                  scripts/generate_dataset.py \
                  scripts/globalstats.py \

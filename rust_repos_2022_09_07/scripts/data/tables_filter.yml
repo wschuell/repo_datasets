@@ -1,0 +1,337 @@
+# _bots_manual_check:
+# - additional_info
+# - identity
+# - identity_id
+# - identity_type
+# - identity_type_id
+# - is_bot
+# - note
+# _dbinfo:
+# - info_content
+# - info_type
+# _error_logs:
+# - created_at
+# - error
+# - id
+commit_comment_reactions:
+ - author_id
+ - author_login
+ - comment_id
+ - commit_id
+ - created_at
+ - identity_type_id
+ - reaction
+ - repo_id
+commit_comments:
+ - author_id
+ - author_login
+ - comment_id
+# - comment_text
+ - commit_id
+ - created_at
+ - identity_type_id
+ - repo_id
+commit_parents:
+ - child_id
+ - parent_id
+ - rank
+commit_repos:
+ - commit_id
+ - is_orig_repo
+ - repo_id
+commits:
+ - author_id
+ - committer_id
+ - created_at
+ - deletions
+ - id
+ - insertions
+ - local_created_at
+# - message
+ - original_created_at
+ - repo_id
+ - sha
+ - time_offset
+filtered_deps_package:
+# - created_at
+ - package_id
+ - reason
+filtered_deps_packageedges:
+# - created_at
+ - package_dest_id
+ - package_source_id
+ - reason
+filtered_deps_repo:
+# - created_at
+ - reason
+ - repo_id
+filtered_deps_repoedges:
+# - created_at
+ - reason
+ - repo_dest_id
+ - repo_source_id
+followers:
+ - created_at
+ - followee_id
+ - follower_id
+ - follower_identity_type_id
+ - follower_login
+# - inserted_at
+forks:
+ - fork_rank
+ - forked_at
+ - forked_repo_id
+ - forking_repo_id
+ - forking_repo_url
+# full_updates:
+# - update_type
+# - updated_at
+identities:
+ - attributes
+ - created_at
+ - id
+ - identity
+ - identity_type_id
+# - inserted_at
+ - is_bot
+ - user_id
+identity_types:
+ - id
+ - name
+issue_comment_reactions:
+ - author_id
+ - author_login
+ - comment_id
+ - created_at
+ - identity_type_id
+ - issue_number
+ - reaction
+ - repo_id
+issue_comments:
+ - author_id
+ - author_login
+ - comment_id
+# - comment_text
+ - created_at
+ - identity_type_id
+ - issue_number
+ - repo_id
+issue_labels:
+ - issue_number
+ - label
+ - repo_id
+issue_reactions:
+ - author_id
+ - author_login
+ - created_at
+ - identity_type_id
+ - issue_number
+ - reaction
+ - repo_id
+issues:
+ - author_id
+ - author_login
+ - closed_at
+ - created_at
+ - id
+ - identity_type_id
+# - inserted_at
+ - issue_number
+# - issue_text
+# - issue_title
+ - repo_id
+merged_identities:
+ - affected_identities
+ - id
+# - inserted_at
+ - main_identity_id
+ - main_user_id
+ - reason
+ - secondary_identity_id
+ - secondary_user_id
+merged_repositories:
+ - id
+# - inserted_at
+# - merged_at
+ - merging_reason_source
+ - new_id
+ - new_name
+ - new_owner
+ - new_source
+ - obsolete_id
+ - obsolete_name
+ - obsolete_owner
+ - obsolete_source
+org_memberships:
+ - id
+ - joined_at
+ - left_at
+ - member
+ - org_id
+organizations:
+ - created_at
+ - description
+ - id
+ - login
+ - name
+ - source
+package_dependencies:
+ - depending_on_package
+ - depending_version
+ - semver_str
+package_version_downloads:
+ - downloaded_at
+ - downloads
+ - package_version
+package_versions:
+ - created_at
+ - id
+ - package_id
+ - version_str
+packages:
+ - created_at
+ - id
+# - inserted_at
+ - insource_id
+ - name
+ - repo_id
+ - source_id
+ - url_id
+pullrequest_comment_reactions:
+ - author_id
+ - author_login
+ - comment_id
+ - created_at
+ - identity_type_id
+ - pullrequest_number
+ - reaction
+ - repo_id
+pullrequest_comments:
+ - author_id
+ - author_login
+ - comment_id
+# - comment_text
+ - created_at
+ - identity_type_id
+ - pullrequest_number
+ - repo_id
+pullrequest_labels:
+ - label
+ - pullrequest_number
+ - repo_id
+pullrequest_reactions:
+ - author_id
+ - author_login
+ - created_at
+ - identity_type_id
+ - pullrequest_number
+ - reaction
+ - repo_id
+pullrequests:
+ - author_id
+ - author_login
+ - created_at
+ - identity_type_id
+ - inserted_at
+ - merged_at
+ - merger_id
+ - merger_login
+ - pullrequest_number
+# - pullrequest_text
+ - pullrequest_title
+ - repo_id
+# releases:
+# - created_at
+# - id
+# - inserted_at
+# - name
+# - repo_id
+# - tag_name
+repo_languages:
+ - language
+# - queried_at
+ - repo_id
+ - share
+ - size
+repositories:
+ - cloned
+ - created_at
+ - id
+ - latest_commit_time
+ - name
+ - owner
+ - source
+# - updated_at
+ - url_id
+sources:
+ - id
+ - name
+ - url_root
+# sponsors_listings:
+# - created_at
+# - id
+# - identity_type_id
+# - inserted_at
+# - login
+# sponsors_repo:
+# - created_at
+# - external_id
+# - id
+# - inserted_at
+# - is_onetime_payment
+# - repo_id
+# - sponsor_id
+# - sponsor_identity_type_id
+# - sponsor_login
+# - tier
+sponsors_user:
+ - created_at
+ - external_id
+ - id
+# - inserted_at
+ - is_onetime_payment
+ - sponsor_id
+ - sponsor_identity_type_id
+ - sponsor_login
+ - sponsored_id
+ - tier
+stars:
+# - created_at
+ - identity_id
+ - identity_type_id
+ - login
+ - repo_id
+ - starred_at
+# table_updates:
+# - id
+# - identity_id
+# - info
+# - latest_commit_time
+# - repo_id
+# - success
+# - table_name
+# - updated_at
+urls:
+ - cleaned_url
+ - id
+# - inserted_at
+ - source
+ - source_root
+ - url
+user_languages:
+ - language
+# - queried_at
+ - share
+ - size
+ - user_identity
+users:
+ - creation_identity
+ - creation_identity_type_id
+ - id
+# - inserted_at
+ - is_bot
+watchers:
+ - identity_id
+ - identity_type_id
+ - login
+ - repo_id
