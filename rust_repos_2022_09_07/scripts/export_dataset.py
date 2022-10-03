@@ -12,7 +12,7 @@ import repodepo.extras.exports
 
 import os
 
-db_name = 'rust_repos_sample'
+db_name = 'rust_repos_2022_09_07'
 port = 5432
 
 # Where to output the files
