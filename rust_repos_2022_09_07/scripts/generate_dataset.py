@@ -67,7 +67,7 @@ db_crates_conninfo = dict( host = 'localhost',
 package_limit = None # Set a package limit to build a sample dataset, from the N first packages by id. If set to None, no limit.
 
 
-workers = 4 # Number of parallel threads for querying the github APIs
+workers = 12 # Number of parallel threads for querying the github APIs
 
 print('Make sure you have a github API key (with permission read:user for GraphQL) in $HOME/.repo_tools/github_api_keys.txt. Continuing in 3s.')
 print('Make sure you have a gitlab API key in $HOME/.repo_tools/gitlab_api_keys.txt. Continuing in 3s.')
