@@ -1,0 +1,378 @@
+issues:
+  nb_total:
+    691757: _all
+    684234: GitHub
+    7523: Gitlab
+  nb_closed:
+    519344: _all
+    514698: GitHub
+    4646: Gitlab
+  nb_distinct_labels:
+    10743: _all
+    10483: GitHub
+    421: Gitlab
+  nb_comments:
+    2055136: _all
+    2027452: GitHub
+    27684: Gitlab
+  nb_reactions:
+    301840: GitHub
+  nb_comment_reactions:
+    589264: GitHub
+pullrequests:
+  nb_total:
+    1251122: _all
+    1241353: GitHub
+    9769: Gitlab
+  nb_closed:
+    1214653: _all
+    1205291: GitHub
+    9362: Gitlab
+  nb_merged:
+    983222: _all
+    974510: GitHub
+    8712: Gitlab
+  nb_distinct_labels:
+    5628: _all
+    5533: GitHub
+    167: Gitlab
+  nb_comments:
+    2817752: _all
+    2771574: GitHub
+    46178: Gitlab
+  nb_reactions:
+    185521: GitHub
+  nb_comment_reactions:
+    268981: GitHub
+identities:
+  nb_total:
+    no_bots:
+      email: 89429
+      github_login: 58329
+      gitlab_login: 450
+    only_bots:
+      email: 220
+      gitlab_login: 2
+      github_login: 128
+users:
+  nb_total:
+    no_bots:
+      email: 72899
+      github_login: 58329
+      gitlab_login: 450
+    only_bots:
+      email: 189
+      github_login: 128
+      gitlab_login: 2
+    total:
+      total: 79875
+      no_identity: 6787
+  github_gitlab:
+    common: 87
+    common_samelogin: 87
+    no_gh_no_gl: 14266
+dependencies:
+  packagespace:
+    nb_links: 417135
+    cycles:
+      cycle_detection_stopped: true
+      nb_cycles: 10000
+      nb_2cycles: 81
+      maxlen_cycle: 16
+      total_elements_involved: 202
+      total_links_involved: 296
+      elements_involved:
+      - crates/windows-web: 9888
+      - crates/windows-foundation: 9888
+      - crates/windows-storage: 9888
+      - crates/windows-devices: 9888
+      - crates/windows-applicationmodel: 9516
+      - crates/windows-ui: 9447
+      - crates/windows-system: 9024
+      - crates/windows-networking: 7740
+      - crates/windows-security: 7279
+      - crates/windows-media: 6458
+      links_involved:
+      - ('crates/windows-web', 'crates/windows-foundation'): 9888
+      - ('crates/windows-foundation', 'crates/windows-storage'): 9888
+      - ('crates/windows-storage', 'crates/windows-devices'): 9888
+      - ('crates/windows-applicationmodel', 'crates/windows-ui-xaml'): 4573
+      - ('crates/windows-security', 'crates/windows-web'): 3548
+      - ('crates/windows-devices', 'crates/windows-applicationmodel'): 3204
+      - ('crates/windows-ui', 'crates/windows-media'): 3036
+      - ('crates/windows-data', 'crates/windows-ui'): 2760
+      - ('crates/windows-security', 'crates/windows-networking'): 2568
+      - ('crates/windows-globalization', 'crates/windows-ui'): 2531
+  packagespace_filtered:
+    nb_links: 416557
+    nb_links_filtered: 578
+    cycles:
+      cycle_detection_stopped: false
+      nb_cycles: 425
+      nb_2cycles: 0
+      maxlen_cycle: 12
+      total_elements_involved: 103
+      total_links_involved: 189
+      elements_involved:
+      - crates/windows-networking: 302
+      - crates/windows-ui: 275
+      - crates/windows-security: 261
+      - crates/windows-applicationmodel: 249
+      - crates/windows-devices: 234
+      - crates/windows-perception: 220
+      - crates/windows-system: 214
+      - crates/windows-graphics: 175
+      - crates/windows-storage: 146
+      - crates/windows-media: 137
+      links_involved:
+      - ('crates/windows-networking', 'crates/windows-ui'): 274
+      - ('crates/windows-security', 'crates/windows-networking'): 248
+      - ('crates/windows-applicationmodel', 'crates/windows-perception'): 170
+      - ('crates/windows-storage', 'crates/windows-devices'): 146
+      - ('crates/windows-ui', 'crates/windows-media'): 137
+      - ('crates/windows-perception', 'crates/windows-graphics'): 123
+      - ('crates/windows-devices', 'crates/windows-applicationmodel'): 120
+      - ('crates/windows-devices', 'crates/windows-security'): 114
+      - ('crates/windows-perception', 'crates/windows-system'): 79
+      - ('crates/windows-graphics', 'crates/windows-system'): 79
+  packagespace_timestamp:
+    nb_links: 364478
+    cycles:
+      cycle_detection_stopped: false
+      nb_cycles: 11
+      nb_2cycles: 9
+      maxlen_cycle: 4
+      total_elements_involved: 22
+      total_links_involved: 23
+      elements_involved:
+      - crates/harled_core: 2
+      - crates/giftwrap: 2
+      - crates/harled: 2
+      - crates/aAab98e1b710fedc8a3f79a77462ba1f03da095dca27037ba460c16971: 1
+      - crates/aB36743f553dc34bb653d5006f7c3cb1ce1fb3221886d830d7604b6599: 1
+      - crates/expr-parent: 1
+      - crates/expr-child: 1
+      - crates/ab057eeeb81e66e695928435b2aefc0a2a9ee96dadedbd39530d5a6099: 1
+      - crates/aae57588a5f6241f83314c18e8f61ba0c9a1da71aa1ffcecf054fd006f: 1
+      - crates/aB2e7e16bfec67a65da80d081331d0dd5a0aa81afa330cb1e21cbb2dd1: 1
+      links_involved:
+      - ('crates/harled_core', 'crates/giftwrap'): 2
+      - ('crates/giftwrap', 'crates/harled'): 2
+      - ? ('crates/aB36743f553dc34bb653d5006f7c3cb1ce1fb3221886d830d7604b6599', 'crates/aAab98e1b710fedc8a3f79a77462ba1f03da095dca27037ba460c16971')
+        : 1
+      - ? ('crates/aAab98e1b710fedc8a3f79a77462ba1f03da095dca27037ba460c16971', 'crates/aB36743f553dc34bb653d5006f7c3cb1ce1fb3221886d830d7604b6599')
+        : 1
+      - ('crates/expr-child', 'crates/expr-parent'): 1
+      - ('crates/expr-parent', 'crates/expr-child'): 1
+      - ? ('crates/aae57588a5f6241f83314c18e8f61ba0c9a1da71aa1ffcecf054fd006f', 'crates/ab057eeeb81e66e695928435b2aefc0a2a9ee96dadedbd39530d5a6099')
+        : 1
+      - ? ('crates/ab057eeeb81e66e695928435b2aefc0a2a9ee96dadedbd39530d5a6099', 'crates/aae57588a5f6241f83314c18e8f61ba0c9a1da71aa1ffcecf054fd006f')
+        : 1
+      - ? ('crates/aA38b47feffcc72d33e6b8d1fc08b48dbc39ed2263b6f16820de8b5089', 'crates/aB2e7e16bfec67a65da80d081331d0dd5a0aa81afa330cb1e21cbb2dd1')
+        : 1
+      - ? ('crates/aB2e7e16bfec67a65da80d081331d0dd5a0aa81afa330cb1e21cbb2dd1', 'crates/aA38b47feffcc72d33e6b8d1fc08b48dbc39ed2263b6f16820de8b5089')
+        : 1
+  packagespace_timestamp_filtered:
+    nb_links: 364060
+    nb_links_filtered: 418
+    cycles:
+      cycle_detection_stopped: false
+      nb_cycles: 0
+      nb_2cycles: 0
+      maxlen_cycle: 0
+      total_elements_involved: 0
+      total_links_involved: 0
+      elements_involved: []
+      links_involved: []
+  repospace:
+    nb_links: 251206
+    cycles:
+      cycle_detection_stopped: true
+      nb_cycles: 10000
+      nb_2cycles: 119
+      maxlen_cycle: 57
+      total_elements_involved: 326
+      total_links_involved: 469
+      elements_involved:
+      - GitHub/yeslogic/fontconfig-rs: 9782
+      - GitHub/matklad/once_cell: 9782
+      - GitHub/Amanieu/parking_lot: 9782
+      - GitHub/microsoft/windows-rs: 9782
+      - GitHub/rayon-rs/rayon: 9782
+      - GitHub/rust-lang/futures-rs: 9782
+      - GitHub/rust-lang/log: 9782
+      - GitHub/rust-lang/regex: 9782
+      - GitHub/BurntSushi/ucd-generate: 9782
+      - GitHub/BurntSushi/byteorder: 9782
+      links_involved:
+      - ('GitHub/servo/font-kit', 'GitHub/yeslogic/fontconfig-rs'): 9782
+      - ('GitHub/yeslogic/fontconfig-rs', 'GitHub/matklad/once_cell'): 9782
+      - ('GitHub/matklad/once_cell', 'GitHub/Amanieu/parking_lot'): 9782
+      - ('GitHub/Amanieu/parking_lot', 'GitHub/microsoft/windows-rs'): 9782
+      - ('GitHub/microsoft/windows-rs', 'GitHub/rayon-rs/rayon'): 9782
+      - ('GitHub/rayon-rs/rayon', 'GitHub/rust-lang/futures-rs'): 9782
+      - ('GitHub/rust-lang/futures-rs', 'GitHub/rust-lang/log'): 9782
+      - ('GitHub/rust-lang/log', 'GitHub/rust-lang/regex'): 9782
+      - ('GitHub/rust-lang/regex', 'GitHub/BurntSushi/ucd-generate'): 9782
+      - ('GitHub/BurntSushi/ucd-generate', 'GitHub/BurntSushi/byteorder'): 9782
+      packagespace_links:
+        ('GitHub/servo/font-kit', 'GitHub/yeslogic/fontconfig-rs'):
+        - ('crates/font-kit', 'crates/yeslogic-fontconfig-sys')
+        ('GitHub/yeslogic/fontconfig-rs', 'GitHub/matklad/once_cell'):
+        - ('crates/yeslogic-fontconfig-sys', 'crates/once_cell')
+        ('GitHub/matklad/once_cell', 'GitHub/Amanieu/parking_lot'):
+        - ('crates/once_cell', 'crates/parking_lot')
+        ('GitHub/Amanieu/parking_lot', 'GitHub/microsoft/windows-rs'):
+        - ('crates/parking_lot_core', 'crates/windows-sys')
+        ('GitHub/microsoft/windows-rs', 'GitHub/rayon-rs/rayon'):
+        - ('crates/windows_gen', 'crates/rayon')
+        - ('crates/windows_macros', 'crates/rayon')
+  repospace_filtered:
+    nb_links: 251050
+    nb_links_filtered: 156
+    cycles:
+      cycle_detection_stopped: true
+      nb_cycles: 10000
+      nb_2cycles: 0
+      maxlen_cycle: 58
+      total_elements_involved: 115
+      total_links_involved: 182
+      elements_involved:
+      - GitHub/yeslogic/fontconfig-rs: 9996
+      - GitHub/matklad/once_cell: 9996
+      - GitHub/Amanieu/parking_lot: 9996
+      - GitHub/microsoft/windows-rs: 9996
+      - GitHub/dtolnay/syn: 9996
+      - GitHub/dtolnay/semver: 9996
+      - GitHub/steveklabnik/semver-parser: 9996
+      - GitHub/pest-parser/pest: 9996
+      - GitHub/BurntSushi/ucd-generate: 9996
+      - GitHub/clap-rs/clap: 9996
+      links_involved:
+      - ('GitHub/servo/font-kit', 'GitHub/yeslogic/fontconfig-rs'): 9996
+      - ('GitHub/yeslogic/fontconfig-rs', 'GitHub/matklad/once_cell'): 9996
+      - ('GitHub/matklad/once_cell', 'GitHub/Amanieu/parking_lot'): 9996
+      - ('GitHub/Amanieu/parking_lot', 'GitHub/microsoft/windows-rs'): 9996
+      - ('GitHub/microsoft/windows-rs', 'GitHub/dtolnay/syn'): 9996
+      - ('GitHub/dtolnay/syn', 'GitHub/dtolnay/semver'): 9996
+      - ('GitHub/dtolnay/semver', 'GitHub/steveklabnik/semver-parser'): 9996
+      - ('GitHub/steveklabnik/semver-parser', 'GitHub/pest-parser/pest'): 9996
+      - ('GitHub/pest-parser/pest', 'GitHub/BurntSushi/ucd-generate'): 9996
+      - ('GitHub/clap-rs/clap', 'GitHub/automa-app/cargo-up'): 9996
+      packagespace_links:
+        ('GitHub/servo/font-kit', 'GitHub/yeslogic/fontconfig-rs'):
+        - ('crates/font-kit', 'crates/yeslogic-fontconfig-sys')
+        ('GitHub/yeslogic/fontconfig-rs', 'GitHub/matklad/once_cell'):
+        - ('crates/yeslogic-fontconfig-sys', 'crates/once_cell')
+        ('GitHub/matklad/once_cell', 'GitHub/Amanieu/parking_lot'):
+        - ('crates/once_cell', 'crates/parking_lot')
+        ('GitHub/Amanieu/parking_lot', 'GitHub/microsoft/windows-rs'):
+        - ('crates/parking_lot_core', 'crates/windows-sys')
+        ('GitHub/microsoft/windows-rs', 'GitHub/dtolnay/syn'):
+        - ('crates/windows_gen', 'crates/syn')
+        - ('crates/windows-implement', 'crates/syn')
+        - ('crates/windows-interface', 'crates/syn')
+        - ('crates/windows_macros', 'crates/syn')
+  repospace_timestamp:
+    nb_links: 223088
+    cycles:
+      cycle_detection_stopped: true
+      nb_cycles: 10000
+      nb_2cycles: 81
+      maxlen_cycle: 41
+      total_elements_involved: 226
+      total_links_involved: 338
+      elements_involved:
+      - GitHub/paritytech/aio-limited: 9875
+      - GitHub/rust-lang/futures-rs: 9875
+      - GitHub/rust-random/rand: 9875
+      - GitHub/rust-random/rngs: 9875
+      - GitHub/paritytech/substrate: 9875
+      - GitHub/libp2p/rust-libp2p: 9875
+      - GitHub/dtolnay/syn: 9872
+      - GitHub/dtolnay/semver: 9872
+      - GitHub/steveklabnik/semver-parser: 9872
+      - GitHub/pest-parser/pest: 9872
+      links_involved:
+      - ('GitHub/libp2p/rust-libp2p', 'GitHub/paritytech/aio-limited'): 9875
+      - ('GitHub/paritytech/aio-limited', 'GitHub/rust-lang/futures-rs'): 9875
+      - ('GitHub/rust-random/rand', 'GitHub/rust-random/rngs'): 9875
+      - ('GitHub/rust-random/rngs', 'GitHub/paritytech/substrate'): 9875
+      - ('GitHub/paritytech/substrate', 'GitHub/libp2p/rust-libp2p'): 9875
+      - ('GitHub/dtolnay/syn', 'GitHub/dtolnay/semver'): 9872
+      - ('GitHub/dtolnay/semver', 'GitHub/steveklabnik/semver-parser'): 9872
+      - ('GitHub/steveklabnik/semver-parser', 'GitHub/pest-parser/pest'): 9872
+      - ('GitHub/pest-parser/pest', 'GitHub/BurntSushi/ucd-generate'): 9872
+      - ('GitHub/clap-rs/clap', 'GitHub/automa-app/cargo-up'): 9804
+      packagespace_links:
+        ('GitHub/libp2p/rust-libp2p', 'GitHub/paritytech/aio-limited'):
+        - ('crates/libp2p-ratelimit', 'crates/aio-limited')
+        ('GitHub/paritytech/aio-limited', 'GitHub/rust-lang/futures-rs'):
+        - ('crates/aio-limited', 'crates/futures')
+        ('GitHub/rust-random/rand', 'GitHub/rust-random/rngs'):
+        - ('crates/fake-rand-test', 'crates/rand_isaac')
+        - ('crates/fake-rand-test', 'crates/rand_xorshift')
+        - ('crates/rand', 'crates/rand_isaac')
+        - ('crates/rand', 'crates/rand_jitter')
+        - ('crates/rand', 'crates/rand_xorshift')
+        ('GitHub/rust-random/rngs', 'GitHub/paritytech/substrate'):
+        - ('crates/fullcodec_rand_xorshift', 'crates/sp-std')
+        - ('crates/parity_rand_xorshift', 'crates/sp-std')
+        ('GitHub/paritytech/substrate', 'GitHub/libp2p/rust-libp2p'):
+        - ('crates/sc-authority-discovery', 'crates/libp2p')
+        - ('crates/sc-cli', 'crates/libp2p')
+        - ('crates/sc-network', 'crates/libp2p')
+        - ('crates/sc-network-gossip', 'crates/libp2p')
+        - ('crates/sc-peerset', 'crates/libp2p')
+        - ('crates/sc-service', 'crates/parity-multiaddr')
+        - ('crates/sc-telemetry', 'crates/libp2p')
+        - ('crates/sp-consensus', 'crates/libp2p')
+        - ('crates/substrate-browser-utils', 'crates/libp2p')
+        - ('crates/substrate-browser-utils', 'crates/libp2p-wasm-ext')
+  repospace_timestamp_filtered:
+    nb_links: 222960
+    nb_links_filtered: 128
+    cycles:
+      cycle_detection_stopped: true
+      nb_cycles: 10000
+      nb_2cycles: 0
+      maxlen_cycle: 36
+      total_elements_involved: 108
+      total_links_involved: 253
+      elements_involved:
+      - GitHub/dtolnay/semver: 9997
+      - GitHub/steveklabnik/semver-parser: 9997
+      - GitHub/pest-parser/pest: 9997
+      - GitHub/BurntSushi/ucd-generate: 9997
+      - GitHub/dtolnay/syn: 9996
+      - GitHub/clap-rs/clap: 9871
+      - GitHub/automa-app/cargo-up: 9870
+      - GitHub/rust-lang/rust-analyzer: 9869
+      - GitHub/tokio-rs/tracing: 9675
+      - GitHub/open-telemetry/opentelemetry-rust: 9671
+      links_involved:
+      - ('GitHub/dtolnay/semver', 'GitHub/steveklabnik/semver-parser'): 9997
+      - ('GitHub/steveklabnik/semver-parser', 'GitHub/pest-parser/pest'): 9997
+      - ('GitHub/pest-parser/pest', 'GitHub/BurntSushi/ucd-generate'): 9997
+      - ('GitHub/dtolnay/syn', 'GitHub/dtolnay/semver'): 9996
+      - ('GitHub/clap-rs/clap', 'GitHub/automa-app/cargo-up'): 9870
+      - ('GitHub/automa-app/cargo-up', 'GitHub/rust-lang/rust-analyzer'): 9869
+      - ('GitHub/tokio-rs/tracing', 'GitHub/open-telemetry/opentelemetry-rust'): 9671
+      - ('GitHub/rust-random/rand', 'GitHub/cryptocorrosion/cryptocorrosion'): 7622
+      - ('GitHub/BurntSushi/ucd-generate', 'GitHub/BurntSushi/fst'): 6828
+      - ('GitHub/BurntSushi/fst', 'GitHub/clap-rs/clap'): 6719
+      packagespace_links:
+        ('GitHub/dtolnay/semver', 'GitHub/steveklabnik/semver-parser'):
+        - ('crates/alt_semver', 'crates/semver-parser')
+        - ('crates/semver', 'crates/semver-parser')
+        ('GitHub/steveklabnik/semver-parser', 'GitHub/pest-parser/pest'):
+        - ('crates/semver-parser', 'crates/pest')
+        - ('crates/semver-parser', 'crates/pest_derive')
+        ('GitHub/pest-parser/pest', 'GitHub/BurntSushi/ucd-generate'):
+        - ('crates/fuel-pest', 'crates/ucd-trie')
+        - ('crates/pest', 'crates/ucd-trie')
+        - ('crates/pest_tmp', 'crates/ucd-trie')
+        ('GitHub/dtolnay/syn', 'GitHub/dtolnay/semver'):
+        - ('crates/syn-codegen', 'crates/semver')
+        ('GitHub/clap-rs/clap', 'GitHub/automa-app/cargo-up'):
+        - ('crates/clap_up', 'crates/cargo-up')
