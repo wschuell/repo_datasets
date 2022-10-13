@@ -1,0 +1,38 @@
+user_stats:
+  users_rust: 21989
+  users_ght: 14563
+  users_missing_rust: 3738
+  users_common: 10825
+  users_missing_ght: 11164
+  globalusers_common: 20648
+  globalusers_missing_ght: 11164
+repos_stats:
+  repos_rust: 16069
+  repos_common: 13623
+  repos_missing_ght: 2446
+commits_stats:
+  commits_rust: 1942997
+  commits_ght: 1299414
+  commits_missing_rust: 433300
+  commits_common: 866114
+  commits_missing_ght: 1076883
+  globalcommits_common: 1720181
+  globalcommits_missing_ght: 222816
+stars_stats:
+  stars_rust: 926136
+  stars_ght: 709833
+  stars_missing_rust: 149052
+  stars_common: 569889
+  stars_missing_ght: 356247
+forks_stats:
+  forks_rust: 96006
+  forks_ght: 87567
+  forks_missing_rust: 31729
+  forks_common: 57763
+  forks_missing_ght: 38243
+userrepos_edges:
+  userrepos_edges_rust: 78744
+  userrepos_edges_ght: 53511
+  userrepos_edges_missing_rust: 12920
+  userrepos_edges_common: 40591
+  userrepos_edges_missing_ght: 38153
