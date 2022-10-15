@@ -37,7 +37,7 @@ do
 export NB_NAME=$(echo "$NB_FILE" | rev | cut -f 2- -d '.' | rev)
 	if [[ ! -f $NB_FOLDER/$NB_NAME.html ]]
 	then
-		jupyter nbconvert --to notebook --execute $NB_FOLDER/$NB_NAME.ipynb --output $NB_NAME.ipynb
+		jupyter nbconvert --to notebook --execute $NB_FOLDER/$NB_NAME.ipynb --output $NB_NAME.ipynb --ExecutePreprocessor.timeout=600
 		jupyter nbconvert --to html $NB_FOLDER/$NB_NAME.ipynb --output $NB_NAME.html
 	fi
 done
@@ -52,7 +52,7 @@ export NB_FOLDER='../statistics'
 export NB_NAME='basic_plots'
 if [[ ! -f $NB_FOLDER/$NB_NAME.html ]]
 then
-	jupyter nbconvert --to notebook --execute $NB_FOLDER/$NB_NAME.ipynb --output $NB_NAME.ipynb
+	jupyter nbconvert --to notebook --execute $NB_FOLDER/$NB_NAME.ipynb --output $NB_NAME.ipynb --ExecutePreprocessor.timeout=600
 	jupyter nbconvert --to html $NB_FOLDER/$NB_NAME.ipynb --output $NB_NAME.html
 fi
 
