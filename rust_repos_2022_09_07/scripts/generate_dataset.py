@@ -90,10 +90,10 @@ db.add_filler(generic.ClonesFiller()) # Clones after forks to have up-to-date re
 db.add_filler(commit_info.CommitsFiller()) # Commits after forks because fork info needed for repo commit ownership ran at the end.
 db.add_filler(generic.RepoCommitOwnershipFiller()) # associating repositories as owners of commits (for those who could not be disambiguated using forks) based on creation date of associated package
 db.add_filler(generic.GithubNoreplyEmailMerger()) # Resolves commit authors with email @users.noreply.github.com
-#db.add_filler(github_gql.LoginsGQLFiller(workers=workers)) # Disambiguating emails by associating them to their GH logins, using the most recent commit.
-#db.add_filler(github_gql.RandomCommitLoginsGQLFiller(workers=workers)) # Disambiguating emails by associating them to their GH logins, using a random commit.
-#db.add_filler(gitlab_gql.LoginsFiller(workers=workers)) # Disambiguating emails by associating them to their GL logins, using the most recent commit.
-#db.add_filler(gitlab_gql.RandomCommitLoginsFiller(workers=workers)) # Disambiguating emails by associating them to their GL logins, using a random commit.
+db.add_filler(github_gql.LoginsGQLFiller(workers=workers)) # Disambiguating emails by associating them to their GH logins, using the most recent commit.
+db.add_filler(github_gql.RandomCommitLoginsGQLFiller(workers=workers)) # Disambiguating emails by associating them to their GH logins, using a random commit.
+db.add_filler(gitlab_gql.LoginsFiller(workers=workers)) # Disambiguating emails by associating them to their GL logins, using the most recent commit.
+db.add_filler(gitlab_gql.RandomCommitLoginsFiller(workers=workers)) # Disambiguating emails by associating them to their GL logins, using a random commit.
 db.add_filler(generic.SimilarIdentitiesMerger(identity_type1='github_login',identity_type2='gitlab_login'))
 db.add_filler(github_gql.StarsGQLFiller(workers=workers))
 db.add_filler(github_gql.WatchersGQLFiller(workers=workers))
@@ -108,18 +108,21 @@ db.add_filler(generic.RepoCommitOwnershipFiller())
 db.add_filler(github_gql.RepoCreatedAtGQLFiller(workers=workers))
 db.add_filler(gitlab_gql.RepoCreatedAtFiller(workers=workers))
 db.add_filler(github_gql.UserCreatedAtGQLFiller(workers=workers))
-db.add_filler(github_gql.UserOrgsGQLFiller(workers=1))
+db.add_filler(github_gql.UserOrgsGQLFiller(workers=workers)) # Filling in user organization memberships
 db.add_filler(github_gql.RepoLanguagesGQLFiller(workers=workers)) # Filling in repository language shares (approximation made directly by GitHub)
 db.add_filler(github_gql.UserLanguagesGQLFiller(workers=workers)) # Compiling an approximation of user contributions in each language over a time period (default one year up to query time)
 db.add_filler(meta_fillers.MetaBotFiller()) # wrapping several techniques to flag bots and invalid identities
 db.add_filler(deps_filters_fillers.AutoRepoEdges2Cycles())
 db.add_filler(deps_filters_fillers.AutoPackageEdges2Cycles())
-db.add_filler(deps_filters_fillers.FiltersFolderFiller(in_data_folder=False,input_folder=os.path.abspath(os.path.join(os.path.dirname(__file__),'data','filters')))) # Checking if some filters are declared in the same folder
-db.add_filler(deps_filters_fillers.FiltersFolderFiller()) # Adding filters from the updated list provided in repodepo itself
+db.add_filler(deps_filters_fillers.FiltersFolderFiller(input_folder=os.path.abspath(os.path.join(os.path.dirname(__file__),'data','filters')))) # Checking if some filters are declared in the same folder
+db.add_filler(deps_filters_fillers.FiltersLibFolderFiller()) # Adding filters from the updated list provided in repodepo itself
 
 # POTENTIALLY BLOCKING STEPS NEEDING MANUAL INPUT
 db.add_filler(bot_fillers.BotsManualChecksFiller()) # listing accounts to be checked manually for being bots/invalid
+db.add_filler(deps_filters_fillers.DepsManualChecksFiller(timestamp=datetime.datetime(2022,1,1))) # blocking if there are non-flagged cycles in the dependency network
 db.add_filler(deps_filters_fillers.DepsManualChecksFiller()) # blocking if there are non-flagged cycles in the dependency network
 
 
 db.fill_db()
+
+db.clean_users() # Cleaning users table after merging identities

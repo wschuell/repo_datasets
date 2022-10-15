@@ -116,11 +116,13 @@ db.add_filler(meta_fillers.MetaBotFiller()) # wrapping several techniques to fla
 db.add_filler(deps_filters_fillers.AutoRepoEdges2Cycles())
 db.add_filler(deps_filters_fillers.AutoPackageEdges2Cycles())
 db.add_filler(deps_filters_fillers.FiltersFolderFiller(input_folder=os.path.abspath(os.path.join(os.path.dirname(__file__),'data','filters')))) # Checking if some filters are declared in the same folder
-db.add_filler(deps_filters_fillers.FiltersFolderFiller()) # Adding filters from the updated list provided in repodepo itself
+db.add_filler(deps_filters_fillers.FiltersLibFolderFiller()) # Adding filters from the updated list provided in repodepo itself
 
 # POTENTIALLY BLOCKING STEPS NEEDING MANUAL INPUT
 db.add_filler(bot_fillers.BotsManualChecksFiller()) # listing accounts to be checked manually for being bots/invalid
+db.add_filler(deps_filters_fillers.DepsManualChecksFiller(timestamp=datetime.datetime(2022,1,1))) # blocking if there are non-flagged cycles in the dependency network
 db.add_filler(deps_filters_fillers.DepsManualChecksFiller()) # blocking if there are non-flagged cycles in the dependency network
 
 
 db.fill_db()
+db.clean_users() # Cleaning users table after merging identities
