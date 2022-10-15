@@ -67,7 +67,7 @@ db_crates_conninfo = dict( host = 'localhost',
 package_limit = None # Set a package limit to build a sample dataset, from the N first packages by id. If set to None, no limit.
 
 
-workers = 12 # Number of parallel threads for querying the github APIs
+workers = 20 # Number of parallel threads for querying the github APIs
 
 print('Make sure you have a github API key (with permission read:user for GraphQL) in $HOME/.repo_tools/github_api_keys.txt. Continuing in 3s.')
 print('Make sure you have a gitlab API key in $HOME/.repo_tools/gitlab_api_keys.txt. Continuing in 3s.')
@@ -90,17 +90,18 @@ db.add_filler(generic.ClonesFiller()) # Clones after forks to have up-to-date re
 db.add_filler(commit_info.CommitsFiller()) # Commits after forks because fork info needed for repo commit ownership ran at the end.
 db.add_filler(generic.RepoCommitOwnershipFiller()) # associating repositories as owners of commits (for those who could not be disambiguated using forks) based on creation date of associated package
 db.add_filler(generic.GithubNoreplyEmailMerger()) # Resolves commit authors with email @users.noreply.github.com
-db.add_filler(github_gql.LoginsGQLFiller(workers=workers)) # Disambiguating emails by associating them to their GH logins, using the most recent commit.
-db.add_filler(github_gql.RandomCommitLoginsGQLFiller(workers=workers)) # Disambiguating emails by associating them to their GH logins, using a random commit.
-db.add_filler(gitlab_gql.LoginsFiller(workers=workers)) # Disambiguating emails by associating them to their GL logins, using the most recent commit.
-db.add_filler(gitlab_gql.RandomCommitLoginsFiller(workers=workers)) # Disambiguating emails by associating them to their GL logins, using a random commit.
+#db.add_filler(github_gql.LoginsGQLFiller(workers=workers)) # Disambiguating emails by associating them to their GH logins, using the most recent commit.
+#db.add_filler(github_gql.RandomCommitLoginsGQLFiller(workers=workers)) # Disambiguating emails by associating them to their GH logins, using a random commit.
+#db.add_filler(gitlab_gql.LoginsFiller(workers=workers)) # Disambiguating emails by associating them to their GL logins, using the most recent commit.
+#db.add_filler(gitlab_gql.RandomCommitLoginsFiller(workers=workers)) # Disambiguating emails by associating them to their GL logins, using a random commit.
 db.add_filler(generic.SimilarIdentitiesMerger(identity_type1='github_login',identity_type2='gitlab_login'))
 db.add_filler(github_gql.StarsGQLFiller(workers=workers))
+db.add_filler(github_gql.WatchersGQLFiller(workers=workers))
 db.add_filler(github_gql.FollowersGQLFiller(workers=workers))
 db.add_filler(github_gql.SponsorsUserFiller(workers=workers))
 db.add_filler(github_gql.CommitCommentsGQLFiller(workers=workers)) # Integrates commit comments reactions
-db.add_filler(github_gql.CompleteIssuesGQLFiller(workers=workers)) # Integrates reactions, comments, comment reactions and labels
-db.add_filler(github_gql.CompletePullRequestsGQLFiller(workers=workers)) # Integrates reactions, comments, comment reactions and labels
+db.add_filler(github_gql.CompleteIssuesGQLFiller(workers=workers,max_page_size=100)) # Integrates reactions, comments, comment reactions and labels
+db.add_filler(github_gql.CompletePullRequestsGQLFiller(workers=workers,max_page_size=100)) # Integrates reactions, comments, comment reactions and labels
 db.add_filler(gitlab_gql.CompleteIssuesGQLFiller(workers=workers)) # Integrates reactions, comments, comment reactions and labels
 db.add_filler(gitlab_gql.CompletePullRequestsGQLFiller(workers=workers)) # Integrates reactions, comments, comment reactions and labels
 db.add_filler(generic.RepoCommitOwnershipFiller())
@@ -113,7 +114,7 @@ db.add_filler(github_gql.UserLanguagesGQLFiller(workers=workers)) # Compiling an
 db.add_filler(meta_fillers.MetaBotFiller()) # wrapping several techniques to flag bots and invalid identities
 db.add_filler(deps_filters_fillers.AutoRepoEdges2Cycles())
 db.add_filler(deps_filters_fillers.AutoPackageEdges2Cycles())
-db.add_filler(deps_filters_fillers.FiltersFolderFiller(input_folder=os.path.abspath(os.path.join(os.path.dirname(__file__),'data','filters')))) # Checking if some filters are declared in the same folder
+db.add_filler(deps_filters_fillers.FiltersFolderFiller(in_data_folder=False,input_folder=os.path.abspath(os.path.join(os.path.dirname(__file__),'data','filters')))) # Checking if some filters are declared in the same folder
 db.add_filler(deps_filters_fillers.FiltersFolderFiller()) # Adding filters from the updated list provided in repodepo itself
 
 # POTENTIALLY BLOCKING STEPS NEEDING MANUAL INPUT

@@ -67,7 +67,7 @@ db_crates_conninfo = dict( host = 'localhost',
 package_limit = None # Set a package limit to build a sample dataset, from the N first packages by id. If set to None, no limit.
 
 
-workers = 4 # Number of parallel threads for querying the github APIs
+workers = 20 # Number of parallel threads for querying the github APIs
 
 print('Make sure you have a github API key (with permission read:user for GraphQL) in $HOME/.repo_tools/github_api_keys.txt. Continuing in 3s.')
 print('Make sure you have a gitlab API key in $HOME/.repo_tools/gitlab_api_keys.txt. Continuing in 3s.')
@@ -97,6 +97,7 @@ db.add_filler(gitlab_gql.LoginsFiller(workers=workers)) # Disambiguating emails 
 db.add_filler(gitlab_gql.RandomCommitLoginsFiller(workers=workers)) # Disambiguating emails by associating them to their GL logins, using a random commit.
 db.add_filler(generic.SimilarIdentitiesMerger(identity_type1='github_login',identity_type2='gitlab_login'))
 db.add_filler(github_gql.StarsGQLFiller(workers=workers))
+db.add_filler(github_gql.WatchersGQLFiller(workers=workers))
 db.add_filler(github_gql.FollowersGQLFiller(workers=workers))
 db.add_filler(github_gql.SponsorsUserFiller(workers=workers))
 db.add_filler(github_gql.CommitCommentsGQLFiller(workers=workers)) # Integrates commit comments reactions
