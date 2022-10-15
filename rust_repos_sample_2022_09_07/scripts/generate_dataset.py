@@ -97,6 +97,7 @@ db.add_filler(gitlab_gql.LoginsFiller(workers=workers)) # Disambiguating emails 
 db.add_filler(gitlab_gql.RandomCommitLoginsFiller(workers=workers)) # Disambiguating emails by associating them to their GL logins, using a random commit.
 db.add_filler(generic.SimilarIdentitiesMerger(identity_type1='github_login',identity_type2='gitlab_login'))
 db.add_filler(github_gql.StarsGQLFiller(workers=workers))
+db.add_filler(github_gql.WatchersGQLFiller(workers=workers))
 db.add_filler(github_gql.FollowersGQLFiller(workers=workers))
 db.add_filler(github_gql.SponsorsUserFiller(workers=workers))
 db.add_filler(github_gql.CommitCommentsGQLFiller(workers=workers)) # Integrates commit comments reactions
@@ -115,11 +116,13 @@ db.add_filler(meta_fillers.MetaBotFiller()) # wrapping several techniques to fla
 db.add_filler(deps_filters_fillers.AutoRepoEdges2Cycles())
 db.add_filler(deps_filters_fillers.AutoPackageEdges2Cycles())
 db.add_filler(deps_filters_fillers.FiltersFolderFiller(input_folder=os.path.abspath(os.path.join(os.path.dirname(__file__),'data','filters')))) # Checking if some filters are declared in the same folder
-db.add_filler(deps_filters_fillers.FiltersFolderFiller()) # Adding filters from the updated list provided in repodepo itself
+db.add_filler(deps_filters_fillers.FiltersLibFolderFiller()) # Adding filters from the updated list provided in repodepo itself
 
 # POTENTIALLY BLOCKING STEPS NEEDING MANUAL INPUT
 db.add_filler(bot_fillers.BotsManualChecksFiller()) # listing accounts to be checked manually for being bots/invalid
+db.add_filler(deps_filters_fillers.DepsManualChecksFiller(timestamp=datetime.datetime(2022,1,1))) # blocking if there are non-flagged cycles in the dependency network
 db.add_filler(deps_filters_fillers.DepsManualChecksFiller()) # blocking if there are non-flagged cycles in the dependency network
 
 
 db.fill_db()
+db.clean_users() # Cleaning users table after merging identities
