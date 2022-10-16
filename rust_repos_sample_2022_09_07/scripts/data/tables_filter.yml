@@ -41,17 +41,21 @@ commit_repos:
  - repo_id
 commits:
  - author_id
+ - committed_at
  - committer_id
  - created_at
  - deletions
  - id
  - insertions
+ - local_committed_at
  - local_created_at
 # - message
+ - original_committed_at
  - original_created_at
  - repo_id
  - sha
  - time_offset
+ - time_offset_committed
 filtered_deps_package:
 # - created_at
  - package_id
@@ -230,6 +234,7 @@ pullrequest_reactions:
 pullrequests:
  - author_id
  - author_login
+ - closed_at
  - created_at
  - identity_type_id
  - inserted_at
