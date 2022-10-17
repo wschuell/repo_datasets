@@ -1,5 +1,5 @@
 # Repo Datasets
-Scripts to rebuild datasets around software repositories and resulting analyses.
+Scripts to rebuild datasets around software repositories and resulting analyses, using https://github.com/wschuell/repodepo .
 
 Papers using the datasets:
 

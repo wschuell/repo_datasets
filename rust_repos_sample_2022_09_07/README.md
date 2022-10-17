@@ -7,6 +7,10 @@ They are organized into different categories:
  - general statistics about the dataset as yml files
  - scripts to reproduce the dataset, the processed CSV files and the statistics
 
+Updated scripts and statistics are also available on https://github.com/wschuell/repo_datasets .
+
+This dataset is a sample of the Rust ecosystem - seeded from the 100 most downloaded packages.
+
 ## Overview of the folder
 
 ```
@@ -15,7 +19,7 @@ They are organized into different categories:
 ├── dumps
 │   ├── ERdiagram.png
 │   ├── sqlite
-│   │   └── rust_repos_sample.db
+│   │   └── rust_repos_sample_export.db
 │   └── postgresql
 │       ├── script.sh
 │       ├── schema.sql
@@ -65,7 +69,7 @@ They are organized into different categories:
 ### Dataset dumps
 
 The dataset is released in two formats, in the folder `dumps`:
- - A ready-to-use SQLite file `sqlite/rust_repos_sample.db`
+ - A ready-to-use SQLite file `sqlite/rust_repos_sample_export.db`
  - Files to reproduce the database in PostgreSQL:
   - `postgresql/script.sh` A wrapper bash script to call `schema.sql` and `import.sql` while asking for database credentials (consider using a `$HOME/.pgpass` file, see [the official documentation][1]) 
   - `postgresql/schema.sql` to create the structure in your empty database 
@@ -130,6 +134,6 @@ It corresponds to the timestamp of the database dump of `crates.io` that has bee
 [5]: https://ghtorrent.org/downloads.html
 
 
-[softwareversion]: 0.1.0
-[softwarecommit]: 4daeaa608b907c87c6ffad820c877d26af9a2366
-[datasetdate]: 2022-03-14
+[softwareversion]: 0.1.3
+[softwarecommit]: 997497112450c50a910682447b5989b31517cae2
+[datasetdate]: 2022-09-07
